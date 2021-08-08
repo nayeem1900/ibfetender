@@ -49,13 +49,13 @@
                                     <tr>
 
                                         <th>SL.</th>
-                                        <th>Category</th>
                                         <th>Product Name</th>
                                         <th>Proposed Brand Name</th>
                                         <th>Proposed Orgin Name</th>
                                         <th>Proposed Model Name</th>
                                         <th> Branch Name</th>
-                                        <th>Unit</th>
+                                        <th> Tender Name</th>
+                                        
 
 
                                         <th>Action</th>
