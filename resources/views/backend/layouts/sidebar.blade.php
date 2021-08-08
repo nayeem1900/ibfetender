@@ -216,9 +216,61 @@
                 </ul>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
+                        <a href="{{route('setups.unit.view')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Unit</p>
+                        </a>
+                    </li>
+
+
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('setups.branch.view')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Branch Name</p>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('setups.category.view')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Category</p>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('setups.product.view')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Product</p>
+                        </a>
+                    </li>
+
+
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
                         <a href="{{route('setups.tendername.view')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Tender Name</p>
+                        </a>
+                    </li>
+
+
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('setups.demand.view')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Product Demand</p>
                         </a>
                     </li>
 
@@ -292,7 +344,7 @@
 
 
 
-          {{--  <li class="nav-item has-treeview">
+           <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-copy"></i>
                     <p>
@@ -303,9 +355,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{route('reports.csr.pdf')}}" class="nav-link">
+                        <a href="" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Comparisionsheet</p>
+                            <p>Report</p>
                         </a>
                     </li>
 
@@ -313,7 +365,7 @@
 
 
                 </ul>
-            </li>--}}
+            </li>
 
     </ul>
 </nav>

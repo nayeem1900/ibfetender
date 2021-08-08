@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnitsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('units', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('name');
             $table->tinyInteger('status')->default('1');
             $table->integer('created_by')->nullable();
-            $table->integer('updated_by')->nullable();
+            $table->integer('update_by')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('units');
+        Schema::dropIfExists('categories');
     }
 }

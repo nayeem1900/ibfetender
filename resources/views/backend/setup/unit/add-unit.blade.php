@@ -36,8 +36,13 @@
                         <div class="card">
                             <div class="card-header">
 
+                                @if(isset($editData))
+                                    <h3> Edit Unit
+                                        @else
+                                            Add Unit
+                                        @endif
 
-                                        <a class="btn btn-success float-right btn-sm" href="{{route('units.view')}}"><i class="fa fa-list"></i>Unit List</a>
+                                        <a class="btn btn-success float-right btn-sm" href="{{route('setups.unit.view')}}"><i class="fa fa-list"></i>Unit List</a>
                                     </h3>
 
 
@@ -46,36 +51,28 @@
 
 
 
-                                <form method="POST" action="{{route('units.store')}}" id="myForm" enctype="multipart/form-data" >
+                                <form method="POST" action="{{(@$editData)?route('setups.unit.update',$editData->id):route('setups.unit.store')}}" >
                                     @csrf
 
-
-                                    <div class="form-row ">
-
+                                    <div class="form-group">
+                                        <label>Unit Name</label>
                                         <div class="col-md-4">
-                                            <label> Unit Name  <font style="color: red">*</font></label>
-                                            <input type="text" name="name"  class="form-control form-control-sm"id="name">
-
+                                            <input type="text" name="name" value="{{@$editData->name}}" class="form-control"id="name">
+                                            <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}}</font>
                                         </div>
-
-
-
-
-                                    </div><br/>
-
-
-
-
-                                    <div class=" form-group col-md-6">
-
-                                        <input type="submit" value="submit" class="btn btn-primary ">
-
-
-                                        </input>
                                     </div>
 
 
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-4 offset-md-4">
+                                            <button type="submit" class="btn btn-primary">
 
+                                                {{(@$editData)?'Update':'Submit'}}
+
+                                            </button>
+
+                                        </div>
+                                    </div>
                                 </form>
 
 
@@ -93,40 +90,6 @@
         </section>
         <!-- /.content -->
     </div>
-
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-
-            $('#myForm').validate({
-                rules: {
-                    "name": {
-                        required: true,
-                    }
-
-
-                },
-
-                messages: {
-
-
-                },
-                errorElement: 'span',
-                errorPlacement: function (error, element) {
-                    error.addClass('invalid-feedback');
-                    element.closest('.form-group').append(error);
-                },
-                highlight: function (element, errorClass, validClass) {
-                    $(element).addClass('is-invalid');
-                },
-                unhighlight: function (element, errorClass, validClass) {
-                    $(element).removeClass('is-invalid');
-                }
-            });
-        });
-    </script>
 
 
 

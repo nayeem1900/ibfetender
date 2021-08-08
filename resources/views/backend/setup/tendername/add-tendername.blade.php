@@ -57,9 +57,17 @@
                                     <div class="form-group row">
                                         <label>Tender Name</label>
                                         <div class="col-md-4">
-                                            <input type="text" name="name" value="{{@$editData->name}}" class="form-control"id="name">
+                                            <input type="text" name="tender_name" value="{{@$editData->tender_name}}" class="form-control"  id="tender_name">
                                             <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}}</font>
                                         </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="tender_open_date">Tender Open<span style="color: red;font-weight: bold;">*</span></label>
+                                        <input type="date" name="tender_open_date" id="tender_open_date"class="form-control" placeholder="Tender Oopen Date" value="{{@$editData['data']['tender_open_date']}}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="tender_close_date">Tender Close<span style="color: red;font-weight: bold;">*</span></label>
+                                        <input type="date" name="tender_close_date" value="{{@$editData['data']['tender_close_date']}}" id="tender_close_date"class="form-control" placeholder="Tender Oopen Date">
                                     </div>
 
 

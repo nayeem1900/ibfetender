@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Tender Name</h1>
+                        <h1 class="m-0 text-dark">Manage Demand  Product</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Customer</li>
+                            <li class="breadcrumb-item active">Demand</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -35,9 +35,9 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3>Tender name List
+                                <h3>Demand List
 
-                                    <a class="btn btn-success float-right btn-sm" href="{{route('setups.tendername.add')}}"><i class="fa fa-plus-circle"></i> Add Tendername</a>
+                                    <a class="btn btn-success float-right btn-sm" href="{{route('setups.demand.add')}}"><i class="fa fa-plus-circle"></i>Add Demand Product</a>
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -49,7 +49,14 @@
                                     <tr>
 
                                         <th>SL.</th>
-                                        <th>Tender Name</th>
+                                        <th>Category</th>
+                                        <th>Product Name</th>
+                                        <th>Proposed Brand Name</th>
+                                        <th>Proposed Orgin Name</th>
+                                        <th>Proposed Model Name</th>
+                                        <th> Branch Name</th>
+                                        <th>Unit</th>
+
 
                                         <th>Action</th>
                                     </tr>
@@ -58,11 +65,15 @@
                                     @foreach($allData as $key=>$value)
                                         <tr>
                                             <td>{{$key+1}}</td>
+                                            <td>{{($value['category']['name'])}}</td>
                                             <td>{{($value->name)}}</td>
+                                            <td>{{($value['unit']['name'])}}</td>
+
+
 
 
                                             <td>
-                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('setups.tendername.edit',$value->id)}}"><i class="fa fa-edit"></i></a>
+                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('setups.product.edit',$value->id)}}"><i class="fa fa-edit"></i></a>
 
 
                                             </td>

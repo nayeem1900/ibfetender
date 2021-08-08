@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateTenderInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('tender_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('supplier_id');
-            $table->integer('unit_id');
-            $table->integer('category_id');
-            $table->double('quantity')->default('0');
-            $table->string('name');
+            $table->string('tender_name');
+            $table->date('tender_open_date');
+            $table->date('tender_close_date');
             $table->tinyInteger('status')->default('1');
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
@@ -34,6 +32,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('tender_infos');
     }
 }

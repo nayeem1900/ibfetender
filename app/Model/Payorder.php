@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 class Payorder extends Model
 {
-    public function supplier() {
+    /*public function supplier() {
         return $this->belongsTo(User::class,'supplier_id','id');
 
     }
@@ -17,7 +17,7 @@ class Payorder extends Model
     public function tendername(){
 
         return $this->belongsTo(Tendername::class,'tendername_id','id');
-    }
+    }*/
 
 
 }

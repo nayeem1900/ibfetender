@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage unit</h1>
+                        <h1 class="m-0 text-dark">Manage Unit</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             <div class="card-header">
                                 <h3>Unit List
 
-                                    <a class="btn btn-success float-right btn-sm" href="{{route('units.add')}}"><i class="fa fa-plus-circle"></i> Add unit</a>
+                                    <a class="btn btn-success float-right btn-sm" href="{{route('setups.unit.add')}}"><i class="fa fa-plus-circle"></i> Add Unit</a>
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -55,15 +55,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($allData as $key=>$unit)
+                                    @foreach($allData as $key=>$value)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{($unit->name)}}</td>
+                                            <td>{{($value->name)}}</td>
 
 
                                             <td>
-                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('units.edit',$unit->id)}}"><i class="fa fa-edit"></i></a>
-                                                <a title="Delete" class="btn btn-sm btn-danger" href="{{route('units.delete',$unit->id)}}"><i class="fa fa-trash"></i></a>
+                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('setups.unit.edit',$value->id)}}"><i class="fa fa-edit"></i></a>
 
 
                                             </td>

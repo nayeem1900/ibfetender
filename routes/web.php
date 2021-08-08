@@ -128,27 +128,7 @@ Route::group(['middleware' => ['auth','admin']], function() {
         Route::get('/delete/{id}', 'Backend\CustomersController@delete')->name('customers.delete');
     });
 
-    Route::prefix ('units')->group (function () {
 
-
-        Route::get('/view', 'Backend\UnitController@view')->name('units.view');
-        Route::get('/add', 'Backend\UnitController@add')->name('units.add');
-        Route::post('/store', 'Backend\UnitController@store')->name('units.store');
-        Route::get('/edit/{id}', 'Backend\UnitController@edit')->name('units.edit');
-        Route::post('/update/{id}', 'Backend\UnitController@update')->name('units.update');
-        Route::get('/delete/{id}', 'Backend\UnitController@delete')->name('units.delete');
-    });
-
-    Route::prefix ('category')->group (function () {
-
-
-        Route::get('/view', 'Backend\CategoryController@view')->name('category.view');
-        Route::get('/add', 'Backend\CategoryController@add')->name('category.add');
-        Route::post('/store', 'Backend\CategoryController@store')->name('category.store');
-        Route::get('/edit/{id}', 'Backend\CategoryController@edit')->name('category.edit');
-        Route::post('/update/{id}', 'Backend\CategoryController@update')->name('category.update');
-        Route::get('/delete/{id}', 'Backend\CategoryController@delete')->name('category.delete');
-    });
 
     Route::prefix ('datatable')->group (function () {
 
@@ -232,11 +212,50 @@ Route::group(['middleware' => ['auth','admin']], function() {
         Route::post('/year/update/{id}', 'Backend\Setup\YearController@update')->name('setups.year.update');
         Route::post('/year/delete/{id}', 'Backend\Setup\YearController@delete')->name('setups.year.delete');
 
-        Route::get('/tendername/view', 'Backend\Setup\TendernameController@view')->name('setups.tendername.view');
-        Route::get('/tendername/add', 'Backend\Setup\TendernameController@add')->name('setups.tendername.add');
-        Route::post('/tendername/store', 'Backend\Setup\TendernameController@store')->name('setups.tendername.store');
-        Route::get('/tendername/edit/{id}', 'Backend\Setup\TendernameController@edit')->name('setups.tendername.edit');
-        Route::post('/tendername/update/{id}', 'Backend\Setup\TendernameController@update')->name('setups.tendername.update');
+//tender name
+        Route::get('/tendername/view', 'Backend\Setup\TenderinfoController@view')->name('setups.tendername.view');
+        Route::get('/tendername/add', 'Backend\Setup\TenderinfoController@add')->name('setups.tendername.add');
+        Route::post('/tendername/store', 'Backend\Setup\TenderinfoController@store')->name('setups.tendername.store');
+        Route::get('/tendername/edit/{id}', 'Backend\Setup\TenderinfoController@edit')->name('setups.tendername.edit');
+        Route::post('/tendername/update/{id}', 'Backend\Setup\TenderinfoController@update')->name('setups.tendername.update');
+//unit
+        Route::get('/unit/view', 'Backend\Setup\UnitController@view')->name('setups.unit.view');
+        Route::get('/unit/add', 'Backend\Setup\UnitController@add')->name('setups.unit.add');
+        Route::post('/unit/store', 'Backend\Setup\UnitController@store')->name('setups.unit.store');
+        Route::get('/unit/edit/{id}', 'Backend\Setup\UnitController@edit')->name('setups.unit.edit');
+        Route::post('/unit/update/{id}', 'Backend\Setup\UnitController@update')->name('setups.unit.update');
+        Route::post('/unit/delete/{id}', 'Backend\Setup\UnitController@delete')->name('setups.unit.delete');
+
+    //Branch name
+        Route::get('/branch/view', 'Backend\Setup\BranchController@view')->name('setups.branch.view');
+        Route::get('/branch/add', 'Backend\Setup\BranchController@add')->name('setups.branch.add');
+        Route::post('/branch/store', 'Backend\Setup\BranchController@store')->name('setups.branch.store');
+        Route::get('/branch/edit/{id}', 'Backend\Setup\BranchController@edit')->name('setups.branch.edit');
+        Route::post('/branch/update/{id}', 'Backend\Setup\BranchController@update')->name('setups.branch.update');
+        Route::post('/branch/delete/{id}', 'Backend\Setup\BranchController@delete')->name('setups.branch.delete');
+//category
+
+        Route::get('/category/view', 'Backend\Setup\CategoryController@view')->name('setups.category.view');
+        Route::get('/category/add', 'Backend\Setup\CategoryController@add')->name('setups.category.add');
+        Route::post('/category/store', 'Backend\Setup\CategoryController@store')->name('setups.category.store');
+        Route::get('/category/edit/{id}', 'Backend\Setup\CategoryController@edit')->name('setups.category.edit');
+        Route::post('/category/update/{id}', 'Backend\Setup\CategoryController@update')->name('setups.category.update');
+        Route::post('/category/delete/{id}', 'Backend\Setup\CategoryController@delete')->name('setups.category.delete');
+//product
+        Route::get('/product/view', 'Backend\Setup\ProductController@view')->name('setups.product.view');
+        Route::get('/product/add', 'Backend\Setup\ProductController@add')->name('setups.product.add');
+        Route::post('/product/store', 'Backend\Setup\ProductController@store')->name('setups.product.store');
+        Route::get('/product/edit/{id}', 'Backend\Setup\ProductController@edit')->name('setups.product.edit');
+        Route::post('/product/update/{id}', 'Backend\Setup\ProductController@update')->name('setups.product.update');
+        Route::post('/product/delete/{id}', 'Backend\Setup\ProductController@delete')->name('setups.product.delete');
+//quantity
+        Route::get('/demand/view', 'Backend\Setup\DemandController@view')->name('setups.demand.view');
+        Route::get('/demand/add', 'Backend\Setup\DemandController@add')->name('setups.demand.add');
+        Route::post('/demand/store', 'Backend\Setup\DemandController@store')->name('setups.demand.store');
+        Route::get('/demand/edit/{id}', 'Backend\Setup\DemandController@edit')->name('setups.demand.edit');
+        Route::post('/demand/update/{id}', 'Backend\Setup\DemandController@update')->name('setups.demand.update');
+        Route::post('/demand/delete/{id}', 'Backend\Setup\DemandController@delete')->name('setups.demand.delete');
+        Route::get('/demand/details/{category_id}', 'Backend\Setup\DemandController@details')->name('setups.demand.details');
 
 
         Route::get('/payorder/add', 'Backend\Setup\PayorderController@add')->name('setups.payorder.add');

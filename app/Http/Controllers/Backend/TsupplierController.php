@@ -16,6 +16,8 @@ class TsupplierController extends Controller
     public function draftView(){
         $allData=User::where('usertype','supplier')->where('status','0')->get();
         return view('backend.tsupplier.draft-tsupplier',compact('allData'));
+
+
     }
 
     /*public function delete(Request $request){
