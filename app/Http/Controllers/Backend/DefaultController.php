@@ -14,6 +14,12 @@ use App\Model\Product;
 use App\Model\Unit;
 use PDF;
 use App\Model\Purchase;
+
+
+
+
+
+
 class DefaultController extends Controller
 {
 public function getcategory(Request $request){
@@ -36,6 +42,18 @@ public function getcategory(Request $request){
         return response()->json($allData);
 
     }
+
+
+public function getProduct(Request $request){
+
+/*$category_id=$request->category_id;
+$allproduct=Product::with(['product'])->select('product_id')->where('category_id',$category_id)->groupBy('product_id')->get();
+return response()->json($allproduct);*/
+/*dd("ok");*/
+$category_id=$request->category_id;
+$allproduct=Product::where('category_id',$category_id)->get();
+return response()->json($allproduct);
+}
 
 
 

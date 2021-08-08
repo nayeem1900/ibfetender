@@ -55,7 +55,7 @@
                                         <th>Proposed Model Name</th>
                                         <th> Branch Name</th>
                                         <th> Tender Name</th>
-                                        
+
 
 
                                         <th>Action</th>

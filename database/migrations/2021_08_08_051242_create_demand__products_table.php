@@ -13,13 +13,14 @@ class CreateDemandProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('demand_products', function (Blueprint $table) {
+        Schema::create('demand__products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('product_id');
+            $table->integer('category_id');
             $table->integer('unit_id');
             $table->integer('tender_id');
             $table->integer('branch_id');
-            $table->string('name');
+            $table->double('quantity');
             $table->string('proposed_brand');
             $table->string('proposed_orgin');
             $table->string('proposed_model')->nullable();
@@ -37,6 +38,6 @@ class CreateDemandProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('demand_products');
+        Schema::dropIfExists('demand__products');
     }
 }
