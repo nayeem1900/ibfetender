@@ -55,6 +55,13 @@ $allproduct=Product::where('category_id',$category_id)->get();
 return response()->json($allproduct);
 }
 
+public  function getUnit(Request $request){
+    $product_id=$request->product_id;
+    $allunit=Unit::where('product_id',$product_id)->get();
+    return response()->json($allunit);
+}
+
+
 
 
 }

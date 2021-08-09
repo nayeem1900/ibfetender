@@ -67,7 +67,7 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{($value['category']['name'])}}</td>
                                             <td>{{($value->name)}}</td>
-                                            <td>{{($value['unit']['name'])}}</td>
+                                           
 
 
 

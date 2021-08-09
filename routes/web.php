@@ -273,4 +273,4 @@ Route::group(['middleware' => ['auth','admin']], function() {
 Route::get('/get-category','Backend\DefaultController@getcategory')->name('get-category');
 Route::get('/get-supplier', 'Backend\DefaultController@getsupplier')->name('get-supplier');
 Route::get('/get-product', 'Backend\DefaultController@getProduct')->name('get-product');
-
+Route::get('/get-unit', 'Backend\DefaultController@getUnit')->name('get-unit');

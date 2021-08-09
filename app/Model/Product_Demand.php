@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Demand_Product extends Model
+class Product_Demand extends Model
 {
     public function category(){
 
@@ -25,5 +25,4 @@ class Demand_Product extends Model
         return $this->belongsTo(Tender_info::class,'tender_id','id');
 
     }
-
 }

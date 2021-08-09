@@ -49,7 +49,8 @@
                             </div><!-- /.card-header -->
                             <div class="card-body" >
 
-
+                                <form method="post" action="{{(@$editData)?route('setups.demand.update',$editData->id):route('setups.demand.store')}}" >
+                                    @csrf
 
 
 
@@ -90,46 +91,60 @@
                                         </div>
 
 
+       {{-- 11 no 14.44 video--}}
 
+                                        <div class="col-md-4 ">
+                                            <label>Proposed Model Name</label>
 
-                                        <div class="col-md-4">
-                                            <label>Unit <font style="color: red">*</font></label>
-                                            <select name="unit_id" class="form-control form-control-sm">
-                                                <option value="">Select Unit</option>
-                                                @foreach($units as $unit)
-                                                    <option value="{{$unit->id}}">{{$unit->name}}</option>
-                                                @endforeach
-
-                                            </select>
+                                            <input type="text" name="p_model" value="{{@$editData->name}}" class="form-control"id="name">
+                                            <font style="color:red">{{($errors->has('p_model'))?($errors->first('p_model')):''}}</font>
 
                                         </div>
                                         <div class="col-md-4 ">
                                             <label>Proposed Brand Name</label>
 
-                                            <input type="text" name="name" value="{{@$editData->name}}" class="form-control"id="name">
-                                            <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}}</font>
+                                            <input type="text" name="p_brand" value="{{@$editData->name}}" class="form-control"id="name">
+                                            <font style="color:red">{{($errors->has('p_brand'))?($errors->first('p_brand')):''}}</font>
 
                                         </div>
                                         <div class="col-md-4 ">
                                             <label>Proposed Orgin Name</label>
 
-                                            <input type="text" name="name" value="{{@$editData->name}}" class="form-control"id="name">
-                                            <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}}</font>
+                                            <input type="text" name="p_orgin" value="{{@$editData->name}}" class="form-control"id="name">
+                                            <font style="color:red">{{($errors->has('p_orgin'))?($errors->first('p_orgin')):''}}</font>
 
                                         </div>
+                                        <div class="col-md-4 ">
+                                            <label>Demand Quantity</label>
 
+                                            <input type="text" name="p_quantity" value="{{@$editData->name}}" class="form-control"id="name">
+                                            <font style="color:red">{{($errors->has('p_quantity'))?($errors->first('p_quantity')):''}}</font>
+
+                                        </div>
 
 
                                     </div>
 
 
-<div class="form-group col-md-2" style="padding-top:30px;">
+{{--<div class="form-group col-md-2" style="padding-top:30px;">
 
     <a class="btn btn-primary addeventmore"><i class="fa fa-plus-circle"></i>Add Item</a>
-</div>
 
+</div>--}}
 
+                                    <br>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-4 ">
+                                            <button type="submit" class="btn btn-primary">
 
+                                                {{(@$editData)?'Update':'Submit'}}
+
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+                                </form>
 
 
                             </div><!-- /.card-body -->
@@ -170,6 +185,28 @@ url:"{{route('get-product')}}",
 });
 </script>
 
+    <script type="text/javascript">
+
+        $(function () {
+            $(document).on('change','#product_id', function () {
+                var product_id=$(this).val();
+
+                $.ajax({
+                    url:"{{route('get-unit')}}",
+                    type:"GET",
+                    data:{product_id:product_id},
+                    success:function (data) {
+                        var html='<option value="">Select Unit </option>'
+                        $.each(data,function (key,v) {
+                            html +='<option value="'+v.id+'">'+v.name+'</option>';
+
+                        });
+                        $('#unit_id').html(html);
+                    }
+                });
+            });
+        });
+    </script>
 
 
 @endsection

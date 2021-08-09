@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Backend\Setup;
 use App\Http\Controllers\Controller;
 use App\Model\Category;
 
-use App\Model\Demand_Product;
+
 use App\Model\Product;
+use App\Model\Product_Demand;
 use App\Model\Tender_info;
 use App\Model\Unit;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class DemandController extends Controller
     {
 
 
-        $data['allData'] = Demand_Product::all();
+        $data['allData'] = Product_Demand::all();
 
 
         return view('backend.setup.demand.view-demand', $data);
@@ -39,17 +40,21 @@ class DemandController extends Controller
     {
         $this->validate($request, [
 
-            'name' => 'required|unique:products,name',
+            /*'name' => 'required|unique:products,name',*/
         ]);
 
-        $data = new Product();
-        $data->name = $request->name;
-        $data->unit_id = $request->unit_id;
+        $data = new Product_Demand();
+        $data->product_id = $request->product_id;
         $data->category_id = $request->category_id;
+        $data->tender_id = $request->tender_id;
+        $data->p_model = $request->p_model;
+        $data->p_brand = $request->p_brand;
+        $data->p_orgin = $request->p_orgin;
+        $data->p_quantity = $request->p_quantity;
 
         $data->save();
         session()->flash('success', ' Data Insert success');
-        return redirect()->route('setups.product.view');
+        return redirect()->route('setups.demand.view');
     }
 
     public function edit($id)
