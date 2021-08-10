@@ -14,13 +14,16 @@ class Product_Demand extends Model
 
         return $this->belongsTo(Unit::class,'unit_id','id');
     }
+    public function branch(){
 
-    public function products(){
+        return $this->belongsTo(Branch_name::class,'branch_id','id');
+    }
+    public function product(){
 
         return $this->belongsTo(Product::class,'product_id','id');
 
     }
-    public function tenders(){
+    public function tender(){
 
         return $this->belongsTo(Tender_info::class,'tender_id','id');
 

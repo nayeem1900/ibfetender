@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Setup;
 
 use App\Http\Controllers\Controller;
+use App\Model\Branch_name;
 use App\Model\Category;
 
 
@@ -32,6 +33,7 @@ class DemandController extends Controller
         $data['units'] = Unit::all();
         $data['tenders'] = Tender_info::all();
         $data['products'] = Product::all();
+        $data['branches'] = Branch_name::all();
 
         return view('backend.setup.demand.add-demand-product', $data);
     }
@@ -50,6 +52,7 @@ class DemandController extends Controller
         $data->p_model = $request->p_model;
         $data->p_brand = $request->p_brand;
         $data->p_orgin = $request->p_orgin;
+        $data->branch_id = $request->branch_id;
         $data->p_quantity = $request->p_quantity;
 
         $data->save();
@@ -61,28 +64,36 @@ class DemandController extends Controller
     {
         $data['categories'] = Category::all();
         $data['units'] = Unit::all();
-        $data['editData'] = Product::find($id);
-        return view('backend.setup.product.add-product', $data);
+        $data['tenders'] = Tender_info::all();
+        $data['products'] = Product::all();
+        $data['branches'] = Branch_name::all();
+        /*$data['editData'] = Product_Demand::find($id);*/
+        $data['editData']=Product_Demand::with(['category','product'])->where('id',$id)->first();
+        return view('backend.setup.demand.add-demand-product', $data);
+
+
     }
 
 
     public function update(Request $request, $id)
     {
 
-        $data = Product::find($id);
-        $data->unit_id = $request->unit_id;
+
+        $data =Product_Demand::find($id);
+
+
+        $data->product_id = $request->product_id;
         $data->category_id = $request->category_id;
-        $this->validate($request, [
-
-            'name' => 'required|unique:products,name,' . $data->id
-        ]);
-
-
-        $data->name = $request->name;
+        $data->tender_id = $request->tender_id;
+        $data->p_model = $request->p_model;
+        $data->p_brand = $request->p_brand;
+        $data->p_orgin = $request->p_orgin;
+        $data->branch_id = $request->branch_id;
+        $data->p_quantity = $request->p_quantity;
 
         $data->save();
         session()->flash('success', ' Year update success');
-        return redirect()->route('setups.product.view');
+        return redirect()->route('setups.demand.view');
 
 
     }

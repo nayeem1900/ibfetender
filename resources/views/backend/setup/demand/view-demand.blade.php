@@ -43,50 +43,61 @@
                             </div><!-- /.card-header -->
                             <div class="card-body">
 
-                                <table id="example1" class="table table-bordered table-hover">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <table id="example1" class="table table-bordered table-hover">
 
-                                    <thead>
-                                    <tr>
+                                            <thead>
+                                            <tr>
 
-                                        <th>SL.</th>
-                                        <th>Product Name</th>
-                                        <th>Proposed Brand Name</th>
-                                        <th>Proposed Orgin Name</th>
-                                        <th>Proposed Model Name</th>
-                                        <th> Branch Name</th>
-                                        <th> Tender Name</th>
-
-
-
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($allData as $key=>$value)
-                                        <tr>
-                                            <td>{{$key+1}}</td>
-                                            <td>{{($value['category']['name'])}}</td>
-                                            <td>{{($value->name)}}</td>
-                                           
+                                                <th>SL.</th>
+                                                <th>Product Name</th>
+                                                <th>Proposed Brand Name</th>
+                                                <th>Proposed Orgin Name</th>
+                                                <th>Proposed Model Name</th>
+                                                <th> Branch Name</th>
+                                                <th> Tender Name</th>
 
 
 
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($allData as $key=>$value)
+                                                <tr>
+                                                    <td>{{$key+1}}</td>
+                                                    <td>{{$value['product']['name']}}</td>
+                                                    <td>{{($value->p_brand)}}</td>
+                                                    <td>{{($value->p_orgin)}}</td>
+                                                    <td>{{($value->p_model)}}</td>
+                                                    <td>{{$value['branch']['name']}}</td>
+                                                    <td>{{$value['tender']['tender_name']}}</td>
 
-                                            <td>
-                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('setups.product.edit',$value->id)}}"><i class="fa fa-edit"></i></a>
-
-
-                                            </td>
-
-                                        </tr>
-                                    @endforeach
-
-
-                                    </tbody>
 
 
 
-                                </table>
+
+
+                                                    <td>
+                                                        <a title="Edit" class="btn btn-sm btn-primary" href="{{route('setups.demand.edit',$value->id)}}"><i class="fa fa-edit"></i></a>
+
+
+                                                    </td>
+
+                                                </tr>
+                                            @endforeach
+
+
+                                            </tbody>
+
+
+
+                                        </table>
+                                    </table>
+                                </div>
+
+
 
                             </div><!-- /.card-body -->
                         </div>

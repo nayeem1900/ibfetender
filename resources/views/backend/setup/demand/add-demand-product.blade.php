@@ -122,6 +122,21 @@
 
                                         </div>
 
+                                        <div class="col-md-4">
+                                            <label>Branch Name <font style="color: red">*</font></label>
+                                            <select name="branch_id" class="form-control form-control-sm">
+                                                <option value="">Select Tender</option>
+                                                @foreach($branches as $branch)
+                                                    <option value="{{$branch->id}}">{{$branch->name}}</option>
+
+                                                @endforeach
+
+                                            </select>
+
+                                        </div>
+
+
+
 
                                     </div>
 
