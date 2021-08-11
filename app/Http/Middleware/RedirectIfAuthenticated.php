@@ -23,7 +23,8 @@ class RedirectIfAuthenticated
             if(Auth::user()->usertype=='admin'){
                 return redirect('/home');
             }elseif(Auth::user()->usertype=='supplier'){
-                return redirect('/dashboard');
+              /*  return redirect('/dashboard');*/
+              return redirect('view');
             }
         }
 

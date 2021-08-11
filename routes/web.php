@@ -55,11 +55,20 @@ Auth::routes();
 //Customer Dashboard
 
 Route::group(['middleware' => ['auth','supplier']], function() {
-   Route::get('/dashboard', 'Frontend\DashboardController@dashboard')->name('dashboard');
+    Route::get('/view', 'Frontend\MainTender1Controller@view')->name('maintender1.view');
+    Route::get('/tview', 'Frontend\MainTender1Controller@tview')->name('maintender1.tview');
+    Route::get('/add', 'Frontend\MainTender1Controller@add')->name('maintender1.add');
+    Route::post('/store', 'Frontend\MainTender1Controller@store')->name('maintender1.store');
+    Route::get('/edit/{id}', 'Frontend\MainTender1Controller@edit')->name('maintender1.edit');
+    Route::post('/update/{id}', 'Frontend\MainTender1Controller@update')->name('maintender1.update');
+    Route::get('/delete/{id}', 'Frontend\MainTender1Controller@delete')->name('maintender1.delete');
+
+
+  /* Route::get('/dashboard', 'Frontend\DashboardController@dashboard')->name('dashboard');
     Route::post('/store', 'Frontend\DashboardController@store')->name('dashboard.store');
     Route::get('/view', 'Frontend\DashboardController@view')->name('dashboard.view');
     Route::get('/edit/{id}', 'Frontend\DashboardController@edit')->name('dashboard.edit');
-    Route::post('/edit/{id}', 'Frontend\DashboardController@update')->name('dashboard.update');
+    Route::post('/edit/{id}', 'Frontend\DashboardController@update')->name('dashboard.update');*/
 
     Route::prefix ('stproducts')->group (function () {
 
@@ -180,6 +189,7 @@ Route::group(['middleware' => ['auth','admin']], function() {
         Route::post('/update/{id}', 'Backend\PurchaseController@update')->name('purchase.update');
         Route::get('/delete/{id}', 'Backend\PurchaseController@delete')->name('purchase.delete');
     });
+
 
 
     Route::prefix ('tsuppliers')->group (function () {
